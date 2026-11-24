@@ -1,0 +1,668 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Great Wall Beacons Orange</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a two-column reading layout with a sticky side menu on wide screens. Yellow and orange palette: black ink on bright yellow with a warm orange for fills and bars, rounded cards, pill buttons, diamond timeline markers. A heavy display face for headings and a clean sans for text. */
+:root {
+  --bg: #FFE95C;
+  --grid: transparent;
+  --surface: #FFF6B0;
+  --ink: #1F1B00;
+  --muted: #554D00;
+  --line: #CDB400;
+  --accent: #D97757;
+  --accent-text: #A63D14;
+  --accent-soft: #FFD400;
+  --on-accent: #1F1B00;
+  --bad: #B3260E;
+  --bad-soft: #FFCDBD;
+  --wall: #DDBB00;
+  --wall-hi: #F7DC40;
+  --edge: #1F1B00;
+  --hill1: #FFF08F;
+  --hill2: #FFDB3D;
+  --ground: #EBC800;
+  --slit: #1F1B00;
+  --fire: #D63A0F;
+  --duck: #8A6A4B;
+  --duck-bill: #4B4F58;
+  --duck-line: #1F1B00;
+  --duck-eye: #1F1B00;
+  --font-display: "Archivo Black", "Arial Black", Impact, sans-serif;
+  --font-body: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1600; --surface: #262000; --ink: #FFE95C; --muted: #D6C04C; --line: #5C4F00;
+    --accent: #E8895F; --accent-text: #FF9D6B; --accent-soft: #4A3F00; --on-accent: #1A1600; --bad: #FF9A6B; --bad-soft: #4A2A24;
+    --wall: #8F7A00; --wall-hi: #B89E00; --edge: #FFE95C; --hill1: #231D00; --hill2: #2E2600; --ground: #3A3000;
+    --slit: #0D0B00; --fire: #FF8A5C; --duck: #B58E63; --duck-bill: #8A909C; --duck-line: #FFF1A0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A1600; --surface: #262000; --ink: #FFE95C; --muted: #D6C04C; --line: #5C4F00;
+  --accent: #E8895F; --accent-text: #FF9D6B; --accent-soft: #4A3F00; --on-accent: #1A1600; --bad: #FF9A6B; --bad-soft: #4A2A24;
+  --wall: #8F7A00; --wall-hi: #B89E00; --edge: #FFE95C; --hill1: #231D00; --hill2: #2E2600; --ground: #3A3000;
+  --slit: #0D0B00; --fire: #FF8A5C; --duck: #B58E63; --duck-bill: #8A909C; --duck-line: #FFF1A0;
+  color-scheme: dark;
+}
+[hidden] { display: none !important; }
+body { margin: 0; }
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(2.5rem, 9vw, 4.4rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.7rem, 5vw, 2.3rem); scroll-margin-top: 16px; }
+h3 { font-size: 1.25rem; }
+p { margin: 0; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.lede { font-size: 1.22rem; max-width: 34em; }
+.hero { display: flex; flex-direction: column; gap: 16px; padding-top: 12px; }
+.sec { display: flex; flex-direction: column; gap: 20px; }
+.sec > p { max-width: 38em; color: var(--muted); }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a { font-size: 0.9rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: 0; padding: 6px 12px; }
+.jump a:hover { border-color: var(--accent); color: var(--accent); }
+.jump a:focus-visible, .tabs button:focus-visible, .f:focus-visible, .q-btn:focus-visible, .opts button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Timeline */
+.tl { list-style: none; margin: 0 0 0 6px; padding: 0; display: flex; flex-direction: column; max-width: 46em; border-left: 2px solid var(--line); }
+.tl li { position: relative; padding: 0 0 28px 24px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tl li:last-child { padding-bottom: 0; }
+.tl li::before { content: ""; position: absolute; left: -8px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+.tl .when { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; line-height: 1.2; }
+.tl strong { font-size: 1.05rem; }
+.tl p { color: var(--muted); }
+
+/* Diagrams */
+.stage { background: var(--surface); border: 1px solid var(--line); border-radius: 0; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.stage svg { width: 100%; height: auto; display: block; }
+.axis { display: flex; justify-content: space-between; gap: 12px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.shape { fill: var(--wall); stroke: var(--edge); stroke-width: 1.5; transition: fill .2s, stroke .2s; }
+.slit { fill: var(--slit); }
+.hill1 { fill: var(--hill1); } .hill2 { fill: var(--hill2); } .ground { fill: var(--ground); }
+.wall-edge { fill: none; stroke: var(--edge); stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
+.wall-body { fill: none; stroke: var(--wall); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.fire { fill: var(--fire); }
+.smoke { fill: none; stroke: var(--muted); stroke-width: 3; stroke-linecap: round; }
+.core { fill: var(--wall-hi); stroke: var(--edge); stroke-width: 1; stroke-dasharray: 4 4; }
+.dim { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+.dimtext { fill: var(--muted); font: 600 14px var(--font-body); }
+.mk circle { fill: var(--accent); }
+.mk text { fill: var(--on-accent); font: 700 15px var(--font-body); text-anchor: middle; dominant-baseline: central; }
+.lead { stroke: var(--accent); stroke-width: 2; }
+.f { cursor: pointer; transition: opacity .2s; }
+svg[data-active] .f:not(.is-active) { opacity: .55; }
+.f.is-active .shape { stroke: var(--accent); stroke-width: 3; }
+.f.is-active .wall-edge { stroke: var(--accent); }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tabs button { font: inherit; font-size: 0.95rem; font-weight: 600; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 8px 14px; cursor: pointer; min-height: 40px; }
+.tabs button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.panel { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--line); padding-top: 14px; }
+.panel .stops { font-size: 0.95rem; color: var(--accent); font-weight: 600; }
+.panel p { max-width: 42em; }
+.src { font-size: 0.9rem; color: var(--muted); }
+.src a, .sources a { color: var(--accent); text-underline-offset: 3px; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px 28px; }
+.legend li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; }
+.legend b { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-size: 0.9rem; }
+.legend span { color: var(--muted); }
+
+/* Cards, rows, stats */
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; }
+.pair > div { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.pair p { color: var(--muted); }
+.rows { border-bottom: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: 8px 32px; padding: 18px 0; border-top: 1px solid var(--line); }
+.row p { color: var(--muted); }
+@media (max-width: 560px) { .row { grid-template-columns: minmax(0, 1fr); } }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 24px 32px; }
+.stat { border-top: 1px solid var(--line); padding-top: 10px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.stat b { font-family: var(--font-display); font-weight: 600; font-size: 2.1rem; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 0.95rem; }
+.note { max-width: 42em; border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; color: var(--muted); }
+.note b { color: var(--ink); }
+dl.gloss { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px 32px; }
+dl.gloss div { min-width: 0; border-top: 1px solid var(--line); padding-top: 10px; }
+dl.gloss dt { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; }
+dl.gloss dd { margin: 2px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+/* Quiz */
+.quiz { background: var(--surface); border: 1px solid var(--line); border-radius: 0; padding: 18px; display: flex; flex-direction: column; gap: 16px; max-width: 680px; }
+.q-top { display: flex; justify-content: space-between; gap: 12px; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.q-bar { height: 4px; background: var(--line); border-radius: 0; overflow: hidden; }
+.q-bar i { display: block; height: 100%; background: var(--accent); transition: width .3s; }
+.quiz h3 { font-size: 1.4rem; line-height: 1.25; }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opts button { text-align: left; font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 12px 14px; cursor: pointer; min-height: 46px; }
+.opts button:hover:not(:disabled) { border-color: var(--accent); }
+.opts button:disabled { cursor: default; }
+.opts button.right { border-color: var(--accent); background: var(--accent-soft); }
+.opts button.wrong { border-color: var(--bad); background: var(--bad-soft); }
+.q-feedback { display: flex; flex-direction: column; gap: 6px; }
+.q-feedback strong { font-size: 1.05rem; }
+.q-feedback p { color: var(--muted); }
+.q-btn { align-self: flex-start; font: inherit; font-weight: 600; color: var(--on-accent); background: var(--accent); border: 0; border-radius: 0; padding: 10px 20px; min-height: 44px; cursor: pointer; }
+.q-score { font-family: var(--font-display); font-weight: 600; font-size: clamp(3rem, 12vw, 4.5rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+/* References */
+.ref { font-size: 0.75em; vertical-align: super; line-height: 0; color: var(--accent); text-decoration: none; margin-left: 2px; font-weight: 600; }
+.ref:hover { text-decoration: underline; }
+.sources { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; max-width: 44em; border-top: 1px solid var(--line); }
+.sources li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 4px 8px; padding: 14px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 16px; }
+.sources li:target { background: var(--accent-soft); }
+.sources .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.sources a { font-weight: 600; overflow-wrap: anywhere; }
+.sources .for { grid-column: 2; color: var(--muted); font-size: 0.95rem; }
+footer { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+
+/* Night-watch overrides */
+body { font-size: 17px; line-height: 1.65; padding-block: 32px 64px; }
+.shell { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.wrap { max-width: none; margin: 0; gap: 72px; min-width: 0; }
+.side { min-width: 0; }
+.sidehead { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a { font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; background: var(--surface); color: var(--ink); }
+.jump a:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+@media (min-width: 900px) {
+  .shell { grid-template-columns: 190px minmax(0, 1fr); gap: 56px; }
+  .side { position: sticky; top: 24px; align-self: start; }
+  .jump { flex-direction: column; flex-wrap: nowrap; gap: 2px; }
+  .jump a { border: 0; border-left: 3px solid var(--line); border-radius: 0; background: transparent; padding: 6px 12px; font-size: 0.95rem; }
+  .jump a:hover { background: transparent; color: var(--accent); border-left-color: var(--accent); }
+}
+h1, h2, h3 { font-weight: 400; letter-spacing: 0; text-transform: none; }
+h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 9vw, 4.8rem); line-height: 1.02; letter-spacing: -0.02em; }
+h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 5vw, 2.1rem); line-height: 1.1; padding-left: 16px; border-left: 6px solid var(--accent); }
+h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.15rem; }
+.eyebrow { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.lede { font-size: 1.25rem; color: var(--ink); max-width: 32em; }
+.sec > p { max-width: 40em; }
+.axis { font-size: 0.8rem; letter-spacing: 0.04em; text-transform: none; }
+.q-top { font-size: 0.85rem; letter-spacing: 0.04em; text-transform: none; }
+.stage, .quiz, .case { border: 0; border-radius: 18px; background: var(--surface); box-shadow: 0 1px 2px rgba(16, 23, 39, 0.08), 0 8px 24px rgba(16, 23, 39, 0.06); padding: 20px; }
+.tabs button { font-weight: 500; font-size: 0.92rem; border-radius: 999px; padding: 8px 16px; }
+.opts button { border-radius: 12px; font-size: 1rem; }
+.q-btn { border-radius: 999px; padding: 10px 24px; }
+.stat { border: 0; border-radius: 14px; background: var(--surface); padding: 16px; box-shadow: 0 1px 2px rgba(16, 23, 39, 0.08); }
+.stat b { font-family: var(--font-display); font-weight: 400; font-size: 2rem; color: var(--accent); }
+.stat span { font-size: 0.92rem; }
+.tl { border-left: 2px dashed var(--line); margin-left: 8px; }
+.tl li::before { border-radius: 2px; transform: rotate(45deg); width: 12px; height: 12px; left: -7px; top: 9px; border: 0; background: var(--accent); }
+.tl .when { font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.tl strong { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; }
+.row { border-top: 1px solid var(--line); }
+.note { border-left: 6px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--surface); padding: 14px 18px; }
+dl.gloss div { border: 0; border-radius: 12px; background: var(--surface); padding: 12px 14px; }
+dl.gloss dt { font-family: var(--font-body); font-weight: 600; font-size: 1rem; }
+.legend b { border-radius: 8px; font-family: var(--font-body); }
+.q-score { font-family: var(--font-display); font-weight: 400; }
+.panel .stops { font-weight: 600; font-size: 0.9rem; }
+.ref { font-weight: 600; }
+.sources li:target { border-radius: 8px; }
+footer { font-size: 0.85rem; }
+.ducklog { font-size: 0.82rem; letter-spacing: 0.02em; }
+/* Orange accents on yellow */
+.eyebrow { display: inline-block; align-self: flex-start; background: var(--accent); color: var(--on-accent); padding: 4px 12px; border-radius: 999px; }
+.tl .when, .stat b, .ref, .src a, .sources a, .panel .stops { color: var(--accent-text); }
+.stage, .quiz, .case { border: 2px solid var(--accent); }
+.stat { border-top: 5px solid var(--accent); }
+.jump a { border-color: var(--accent); }
+.jump a:hover { color: var(--on-accent); }
+@media (min-width: 900px) {
+  .jump a { border-color: transparent; border-left: 3px solid var(--accent); }
+  .jump a:hover { color: var(--accent-text); border-left-color: var(--accent-text); }
+}
+.sidehead { color: var(--accent-text); }
+.legend b, .mk text { color: var(--on-accent); }
+
+.srclink { font-size: 0.82em; color: var(--accent-text); text-decoration: underline; text-underline-offset: 2px; margin-left: 0.25em; }
+.srclink:hover { text-decoration-thickness: 2px; }
+.srclink:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Ducks */
+.svgwrap { position: relative; }
+.duck { background: none; border: 0; padding: 0; margin: 0; cursor: pointer; width: 26px; height: 23px; display: inline-block; line-height: 0; vertical-align: -5px; color: inherit; transition: transform .15s; }
+.duck svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.duck.abs { position: absolute; z-index: 3; width: 28px; height: 25px; }
+.duck:hover { transform: scale(1.2) rotate(-6deg); }
+.duck:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.duck.found svg { filter: drop-shadow(0 0 5px var(--fire)); }
+.duck.found { transform: scale(1.25); }
+.ducklog { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--muted); }
+.duck { width: 26px; height: 14px; opacity: 0.45; vertical-align: -3px; }
+.duck.abs { width: 30px; height: 16px; }
+.duck:hover, .duck:focus-visible, .duck.found { opacity: 1; }
+.scare { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: rgba(0, 0, 0, 0.88); cursor: pointer; padding: 24px; }
+.scare svg { width: min(78vw, 420px); height: auto; overflow: visible; animation: scare-pop .28s cubic-bezier(.2, 1.6, .4, 1) both, scare-shake .5s .28s 3; }
+.scare p { margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 10.5vw, 5rem); color: #FFD400; line-height: 1; letter-spacing: 0.02em; }
+@keyframes scare-pop { from { transform: scale(0.1); } to { transform: scale(1); } }
+@keyframes scare-shake { 0%, 100% { transform: translateX(0) rotate(0); } 25% { transform: translateX(-14px) rotate(-4deg); } 75% { transform: translateX(14px) rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) { .scare svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .duck, .duck:hover { transition: none; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="duck" viewBox="0 0 44 24">
+    <g style="fill:var(--duck);stroke:var(--duck-line);stroke-width:1.4;stroke-linejoin:round">
+      <ellipse cx="6" cy="14" rx="6.5" ry="3.2"/>
+      <ellipse cx="13" cy="20.4" rx="3.2" ry="1.6"/>
+      <ellipse cx="26" cy="20.4" rx="3.2" ry="1.6"/>
+      <ellipse cx="19" cy="13.5" rx="13" ry="7"/>
+      <circle cx="31" cy="11" r="5.2"/>
+      <rect x="34" y="10" width="9.2" height="4.6" rx="2.3" style="fill:var(--duck-bill)"/>
+      <circle cx="31.2" cy="9.2" r="1.1" style="fill:var(--duck-eye);stroke:none"/>
+      <circle cx="39" cy="11.6" r="0.55" style="fill:var(--duck-line);stroke:none"/>
+    </g>
+  </symbol>
+</svg>
+<div class="shell"><aside class="side"><p class="sidehead">On this page</p><nav class="jump" aria-label="Jump to a section">
+      <a href="#h-time">History</a>
+      <a href="#h-cut">Diagrams</a>
+      <a href="#h-sys">System</a>
+      <a href="#h-build">Materials</a>
+      <a href="#h-1644">1644</a>
+      <a href="#h-num">Numbers</a>
+      <a href="#h-myth">Myths</a>
+      <a href="#h-quiz">Quiz</a>
+      
+    </nav></aside><div class="wrap">
+  <header class="hero">
+    <span class="eyebrow">Border defence across more than 2,000 years</span>
+    <h1>Great Wall of China</h1>
+    <p class="lede">It was never one wall. It was a system of walls, towers, signals and soldiers that changed with every dynasty that used it. <button type="button" class="duck inline" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></p>
+  </header>
+
+  <section class="sec" aria-labelledby="h-time">
+    <h2 id="h-time">Many walls, many builders</h2>
+    <p>The wall people visit today is only the latest layer. Earlier states and dynasties built, linked, repaired and abandoned walls over many centuries.</p>
+    <ol class="tl">
+      <li><span class="when">About 481 to 221 BCE</span><strong>Warring States</strong><p>Each of the seven states had defensive walls along its borders. After taking power, Qin Shi Huang destroyed these. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p></li>
+      <li><span class="when">Qin dynasty</span><strong>The northern wall</strong><p>Qin Shi Huang ordered a great wall along the northern border to defend against the Xiongnu and to show that China was unified. Unwilling conscripts and convicts built it under guard. It ran further north than the wall standing today. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p></li>
+      <li><span class="when">141 to 87 BCE</span><strong>Han under Emperor Wudi</strong><p>The wall was strengthened against the Xiongnu. In 121 BCE a 20-year project began on the Hexi Wall, from Yongdeng in Gansu to Lake Lop Nur in Xinjiang. It also helped regulate trade on the Silk Road. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a><a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p></li>
+      <li><span class="when">386 to 577</span><strong>Northern dynasties</strong><p>In 417 the Northern Wei built a segment over 1,000 km long from Chicheng in Hebei to Wuyuan in Inner Mongolia. In 555 the Northern Qi recruited 1.8 million workers for repairs and extensions. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></p></li>
+      <li><span class="when">581 to 618</span><strong>Sui</strong><p>The wall was repaired and improved seven times to defend against the Tujue. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></p></li>
+      <li><span class="when">1206 to 1368</span><strong>Yuan</strong><p>The Mongols saw little defensive value in the wall. Some forts and key areas were repaired and garrisoned to control commerce and limit rebellion. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></p></li>
+      <li><span class="when">1368 to 1644</span><strong>Ming</strong><p>The Ming strengthened the wall against another Mongol invasion, often along older Northern Qi and Northern Wei walls. They divided the border into nine defence zones. Most of the wall standing today is Ming work, and Britannica dates most of it to the reign of the Hongzhi emperor (1487 to 1505). <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a></p></li>
+      <li><span class="when">After 1644</span><strong>Qing</strong><p>The Manchu border now lay north of the wall. A policy of reconciliation reduced repairs, and the wall gradually fell into ruin. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a><a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p></li>
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="h-cut">
+    <h2 id="h-cut">How the Ming wall was built</h2>
+    <p>The first diagram shows a stretch of ridge with the main parts of the wall. Tap a part to see what it did. The second looks through the wall itself.</p>
+    <div class="stage">
+      <div class="svgwrap"><svg id="ridge" viewBox="0 0 760 320" role="img" aria-label="A stretch of mountain ridge with a wall along its crest, watchtowers, two hilltop beacon towers with smoke, and a fortified pass in the valley." data-active="wall">
+        <path class="hill1" d="M0,200 L80,150 L160,185 L250,115 L330,165 L420,95 L510,150 L600,105 L690,150 L760,125 L760,320 L0,320Z"/>
+        <path class="hill2" d="M0,245 L70,205 L150,235 L230,175 L320,215 L410,165 L500,205 L590,175 L680,210 L760,190 L760,320 L0,320Z"/>
+        <polygon class="ground" points="0,270 60,240 130,205 190,170 240,150 300,185 350,230 390,250 430,230 480,185 540,140 600,160 660,195 720,215 760,225 760,320 0,320"/>
+        <g transform="translate(0,-4)">
+          <g class="f f-wall is-active" data-f="wall">
+            <polyline class="wall-edge" points="0,270 60,240 130,205 190,170 240,150 300,185 350,230 390,250 430,230 480,185 540,140 600,160 660,195 720,215 760,225"/>
+            <polyline class="wall-body" points="0,270 60,240 130,205 190,170 240,150 300,185 350,230 390,250 430,230 480,185 540,140 600,160 660,195 720,215 760,225"/>
+          </g>
+          <g class="f f-towers" data-f="towers">
+            <rect class="shape" x="179" y="136" width="22" height="34"/><rect class="shape" x="177" y="130" width="26" height="6"/>
+            <rect class="shape" x="339" y="196" width="22" height="34"/><rect class="shape" x="337" y="190" width="26" height="6"/>
+            <rect class="shape" x="469" y="151" width="22" height="34"/><rect class="shape" x="467" y="145" width="26" height="6"/>
+            <rect class="shape" x="649" y="161" width="22" height="34"/><rect class="shape" x="647" y="155" width="26" height="6"/>
+          </g>
+          <g class="f f-beacon" data-f="beacon">
+            <rect class="shape" x="227" y="98" width="26" height="52"/><rect class="shape" x="225" y="92" width="30" height="6"/>
+            <circle class="fire" cx="240" cy="84" r="6"/>
+            <path class="smoke" d="M240,76 q-14,-14 0,-28 q14,-14 0,-28"/>
+            <rect class="shape" x="527" y="88" width="26" height="52"/><rect class="shape" x="525" y="82" width="30" height="6"/>
+            <circle class="fire" cx="540" cy="74" r="6"/>
+            <path class="smoke" d="M540,66 q-14,-14 0,-28 q14,-14 0,-28"/>
+          </g>
+          <g class="f f-pass" data-f="pass">
+            <rect class="shape" x="368" y="206" width="44" height="44"/><rect class="shape" x="364" y="198" width="52" height="8"/>
+            <path class="slit" d="M382,250 v-18 a8,8 0 0 1 16,0 v18 z"/>
+          </g>
+        </g>
+      </svg><button type="button" class="duck abs" style="left:86%;top:66%" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></div>
+      <div class="axis"><span>A stylised stretch of ridge</span><span>Real spacing varied</span></div>
+      <div class="tabs" role="group" aria-label="Choose a part of the wall">
+        <button type="button" data-f="wall" aria-pressed="true">Wall</button>
+        <button type="button" data-f="towers" aria-pressed="false">Watchtowers</button>
+        <button type="button" data-f="beacon" aria-pressed="false">Beacon towers</button>
+        <button type="button" data-f="pass" aria-pressed="false">Passes</button>
+      </div>
+      <div class="panel" aria-live="polite">
+        <h3 id="p-title">Wall</h3>
+        <p id="p-text">The wall was built to suit the ground. On the Ming wall, the average height was 7 to 8 metres, about 6.5 metres wide at the base and 5.8 metres at the top, and a little lower on steep hills. Materials depended on the place: tamped earth between wooden boards, adobe, brick and stone, or rock. Walls on plains and at important passes were tall and strong, while those on steep mountains were low and narrow. Figures vary between sources, and another gives a height of 16 to 26 feet (5 to 8 m).</p>
+        <p class="stops" id="p-stops">Key figures: 7 to 8 m high, 6.5 m at the base, 5.8 m at the top</p>
+        <p class="src" id="p-src">Source: <a href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">Britannica, The Ming dynasty to the present</a></p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="svgwrap"><svg viewBox="0 0 520 300" role="img" aria-label="Cross-section of a Ming wall: a tapering wall with a core, a crenellated outer face on the left, a paved walkway, a low inner parapet on the right and a stone drainage spout.">
+        <rect class="ground" x="0" y="250" width="520" height="50"/>
+        <polygon class="shape" points="188,250 196,85 324,85 332,250"/>
+        <polygon class="core" points="204,250 210,97 310,97 316,250"/>
+        <rect class="shape" x="196" y="85" width="128" height="6" style="fill: var(--wall-hi)"/>
+        <rect class="shape" x="196" y="41" width="16" height="44"/>
+        <rect class="shape" x="312" y="63" width="12" height="22"/>
+        <rect class="shape" x="324" y="150" width="30" height="9"/>
+        <line class="dim" x1="170" y1="85" x2="170" y2="250"/>
+        <line class="dim" x1="164" y1="85" x2="176" y2="85"/><line class="dim" x1="164" y1="250" x2="176" y2="250"/>
+        <text class="dimtext" x="160" y="172" text-anchor="end">7 to 8 m</text>
+        <line class="dim" x1="188" y1="272" x2="332" y2="272"/>
+        <line class="dim" x1="188" y1="266" x2="188" y2="278"/><line class="dim" x1="332" y1="266" x2="332" y2="278"/>
+        <text class="dimtext" x="260" y="293" text-anchor="middle">6.5 m at the base</text>
+        <g class="mk"><line class="lead" x1="164" y1="63" x2="196" y2="63"/><circle cx="150" cy="63" r="14"/><text x="150" y="63">1</text></g>
+        <g class="mk"><line class="lead" x1="260" y1="56" x2="260" y2="85"/><circle cx="260" cy="42" r="14"/><text x="260" y="42">2</text></g>
+        <g class="mk"><line class="lead" x1="340" y1="56" x2="324" y2="68"/><circle cx="350" cy="48" r="14"/><text x="350" y="48">3</text></g>
+        <g class="mk"><line class="lead" x1="386" y1="155" x2="354" y2="155"/><circle cx="400" cy="155" r="14"/><text x="400" y="155">4</text></g>
+        <g class="mk"><circle cx="260" cy="180" r="14"/><text x="260" y="180">5</text></g>
+      </svg><button type="button" class="duck abs" style="left:8%;top:68%" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></div>
+      <div class="axis"><span>Outside, facing the enemy</span><span>Inside, facing the defenders</span></div>
+      <ol class="legend">
+        <li><b>1</b><span>Crenellated outer face, about 2 m high, for watching, shooting and cover. Some sections had them on both sides. <a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></span></li>
+        <li><b>2</b><span>Walkway paved with square bricks so troops could move grain and weapons along the top. <a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></span></li>
+        <li><b>3</b><span>Inner parapet, about 1 m high, to protect soldiers and stop them slipping. <a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></span></li>
+        <li><b>4</b><span>Stone spout over 1 m long that carried rainwater out through the wall. Ridged bricks guided water to it. <a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></span></li>
+        <li><b>5</b><span>Core of tamped earth, rubble or lime soil, faced in brick or stone depending on the region. <a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></span></li>
+      </ol>
+      <div class="axis"><span>Drawn roughly to scale, from average figures in Britannica <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a></span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-sys">
+    <h2 id="h-sys">A system, not just a barrier</h2>
+    <p>A wall alone is easy to climb or bypass. Builders added strongpoints, signals, garrisons and rules about who could pass.</p>
+    <div class="pair">
+      <div>
+        <h3>Layers of strongpoints</h3>
+        <p>A Han record describes the spacing as a beacon every 5 li, a tower every 10 li, a fort every 30 li and a castle every 100 li. The Ming divided the border into nine defence zones, the Nine Border Garrisons, each under a post chief. Under Qin, 12 prefectures were set up along the wall. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a><a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a></p>
+      </div>
+      <div>
+        <h3>Barracks and towns</h3>
+        <p>In the Northern Qi period, repairs and new sections totalling about 1,500 km (900 miles) came with towns and barracks at intervals to garrison them. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></p>
+      </div>
+      <div>
+        <h3>Control of trade</h3>
+        <p>The Han used the wall to regulate trade along the routes later called the Silk Road. Repairs under Liu Xiu in 38 CE helped centralise control of trade and travel. The Yuan garrisoned forts to control commerce. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a><a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></p>
+      </div>
+      <div>
+        <h3>A statement of unity</h3>
+        <p>Qin Shi Huang ordered his wall to defend against the Xiongnu and also to show that China was unified. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-build">
+    <h2 id="h-build">What it was built from, and by whom</h2>
+    <p>Builders used what the land offered. Mountain sections, plains and passes were all built differently.</p>
+    <div class="rows">
+      <div class="row"><h3>Tamped earth</h3><p>Earth packed in layers between wooden boards. West of the Garrison of Yulin the Ming wall was packed earth. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a><a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></p></div>
+      <div class="row"><h3>Brick and stone</h3><p>Large bricks and stones faced the pass ramparts, and eastern walls such as those near Badaling were often faced with stone. General Qi Jiguang mainly built brick and stone walls, and suggested a wall starting at Shanhai Pass, over 1,000 km long. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a><a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></p></div>
+      <div class="row"><h3>Mixed construction</h3><p>At the Garrison of Shanxi, packed earth formed the inner side and bricks the outer side. At the Garrison of Ji the core was lime soil or rubble between blue bricks, stone strips or blocks, with lime paste bonding the brick joints. <a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></p></div>
+      <div class="row"><h3>Whatever was nearby</h3><p>The Liaoning Wall used earth, stone and whatever else was available. In some places the wall was made of oak, or of pilings and planks. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a><a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a><a class="srclink" href="https://artsandculture.google.com/story/HwUhhf2W1RxBlQ" target="_blank" rel="noopener">(Google Arts &amp; Culture)</a></p></div>
+      <div class="row"><h3>The workforce</h3><p>Qin's wall was built by unwilling conscripts and convicts under guard. In 555 the Northern Qi recruited 1.8 million workers for repairs and extensions. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a><a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></p></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-1644">
+    <h2 id="h-1644">Where the wall did not help</h2>
+    <p>The wall was only as strong as the soldiers holding it. In 1644 the Ming dynasty ended without the Manchus having to break it.</p>
+    <ol class="tl">
+      <li><span class="when">April 1644</span><strong>Beijing falls</strong><p>Rebels led by Li Zicheng took the Ming capital. Ming general Wu Sangui left his stronghold at Ningyuan, the only major army between the Manchus and Beijing, and returned to fortify Shanhai Pass. <a class="srclink" href="https://en.wikipedia.org/wiki/Battle_of_Shanhai_Pass" target="_blank" rel="noopener">(Wikipedia, Shanhai Pass)</a></p></li>
+      <li><span class="when">27 May 1644</span><strong>Battle of Shanhai Pass</strong><p>Wu asked the Manchu leader Dorgon for help driving out the rebels. Dorgon instead asked him to work for the Qing, and Wu accepted. Their combined armies routed Li's army. <a class="srclink" href="https://en.wikipedia.org/wiki/Battle_of_Shanhai_Pass" target="_blank" rel="noopener">(Wikipedia, Shanhai Pass)</a><a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p></li>
+      <li><span class="when">June to November 1644</span><strong>The Qing take over</strong><p>Dorgon entered Beijing on 5 June, and the Shunzhi Emperor was enthroned as Emperor of China on 8 November. <a class="srclink" href="https://en.wikipedia.org/wiki/Battle_of_Shanhai_Pass" target="_blank" rel="noopener">(Wikipedia, Shanhai Pass)</a></p></li>
+    </ol>
+    <p class="note"><b>The lesson.</b> When Wu left Ningyuan, all the territory outside the wall came under Qing control. The wall had not been beaten, but the army that defended it had gone. <a class="srclink" href="https://en.wikipedia.org/wiki/Battle_of_Shanhai_Pass" target="_blank" rel="noopener">(Wikipedia, Shanhai Pass)</a></p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-num">
+    <h2 id="h-num">By the numbers</h2>
+    <p>A five-year survey that began in 2007 produced the most complete measurement yet.</p>
+    <div class="stats">
+      <div class="stat"><b>21,196 km</b><span>total length found by the survey, about 13,170 miles <a class="srclink" href="https://livescience.com/20840-great-wall-china-long-thought.html" target="_blank" rel="noopener">(Live Science)</a></span></div>
+      <div class="stat"><b>8,850 km</b><span>the 2009 preliminary estimate, less than half the final figure <a class="srclink" href="https://livescience.com/20840-great-wall-china-long-thought.html" target="_blank" rel="noopener">(Live Science)</a></span></div>
+      <div class="stat"><b>43,721</b><span>heritage sites recorded, including wall stretches, defence works, passes and ruins <a class="srclink" href="https://livescience.com/20840-great-wall-china-long-thought.html" target="_blank" rel="noopener">(Live Science)</a></span></div>
+      <div class="stat"><b>8.2%</b><span>of the Ming wall is intact, and the rest is in poor condition <a class="srclink" href="https://livescience.com/20840-great-wall-china-long-thought.html" target="_blank" rel="noopener">(Live Science)</a> <button type="button" class="duck inline" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></span></div>
+      <div class="stat"><b>25,000+</b><span>watchtowers on the Ming wall <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></span></div>
+      <div class="stat"><b>1.8 million</b><span>workers recruited by the Northern Qi in 555 <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a></span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-myth">
+    <h2 id="h-myth">Myths to check</h2>
+    <div class="pair">
+      <div>
+        <h3>You can see it from space</h3>
+        <p>NASA says the wall generally cannot be seen with the unaided eye from low Earth orbit, and is very hard to photograph from there. Its materials are about the same colour and texture as the land around it. It does show up in radar images. Astronauts say it cannot be seen with the naked eye from the Moon. <a class="srclink" href="https://www.nasa.gov/wp-content/uploads/static/history/PDFs/great_wall_less_great_from_space.pdf" target="_blank" rel="noopener">(NASA)</a><a class="srclink" href="https://britannica.com/question/Can-you-see-the-Great-Wall-of-China-from-space" target="_blank" rel="noopener">(Britannica, from space)</a></p>
+      </div>
+      <div>
+        <h3>It is one wall</h3>
+        <p>It is many walls from many states and dynasties. Qin Shi Huang first linked earlier walls, and later dynasties kept building. His wall ran further north than the one standing today. <a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a><a class="srclink" href="https://livescience.com/20840-great-wall-china-long-thought.html" target="_blank" rel="noopener">(Live Science)</a></p>
+      </div>
+      <div>
+        <h3>It is mostly ancient</h3>
+        <p>Most of the wall standing today is Ming work from 1368 to 1644, and Britannica dates most of it to the reign of the Hongzhi emperor (1487 to 1505). The Qin wall ran further north than the one visitors see now. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present" target="_blank" rel="noopener">(Britannica, Ming)</a><a class="srclink" href="https://www.worldhistory.org/Great_Wall_of_China/" target="_blank" rel="noopener">(World History Encyclopedia)</a></p>
+      </div>
+      <div>
+        <h3>It always kept invaders out</h3>
+        <p>The Mongol Yuan saw little defensive value in it, and in 1644 the Manchus crossed after a Ming general joined them. <a class="srclink" href="https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties" target="_blank" rel="noopener">(Britannica, Han to Yuan)</a><a class="srclink" href="https://en.wikipedia.org/wiki/Battle_of_Shanhai_Pass" target="_blank" rel="noopener">(Wikipedia, Shanhai Pass)</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-quiz">
+    <h2 id="h-quiz">Test yourself</h2>
+    <p>Ten questions on what you just read. Pick an answer to see why it is right or wrong. <button type="button" class="duck inline" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></p>
+    <div class="quiz" id="quiz"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-gloss">
+    <h2 id="h-gloss">Terms</h2>
+    <dl class="gloss">
+      <div><dt>Beacon tower</dt><dd>A hilltop tower that sent signals by fire, lantern or smoke.</dd></div>
+      <div><dt>Crenellation</dt><dd>Raised blocks along the top of a wall with gaps between, for watching and shooting.</dd></div>
+      <div><dt>Garrison</dt><dd>The soldiers stationed in a fort, pass or defence zone.</dd></div>
+      <div><dt>Hexi Wall</dt><dd>The Han wall running from Yongdeng in Gansu to Lake Lop Nur in Xinjiang.</dd></div>
+      <div><dt>Li</dt><dd>A traditional Chinese unit of distance, used in the Han record of strongpoint spacing. <button type="button" class="duck inline" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></dd></div>
+      <div><dt>Parapet</dt><dd>A low protective wall along the edge of a walkway.</dd></div>
+      <div><dt>Pass</dt><dd>A fortified gate through the wall where roads crossed the border.</dd></div>
+      <div><dt>Tamped earth</dt><dd>Earth packed hard in layers, often between wooden boards. Also called rammed earth.</dd></div>
+      <div><dt>Xiongnu</dt><dd>The people of the northern steppe that the Qin and Han walls were built against.</dd></div>
+    </dl>
+  </section>
+
+  <footer><button type="button" class="duck inline" aria-label="Secret platypus"><svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg></button></footer>
+</div>
+</div>
+
+<div class="scare" id="scare" role="dialog" aria-modal="true" aria-label="You found every platypus" hidden>
+  <svg viewBox="0 0 44 24" aria-hidden="true" focusable="false"><use href="#duck"/></svg>
+  <p>PLATYPUS!</p>
+</div>
+
+<script>
+(function () {
+  var DATA = {
+    wall: { t: "Wall", p: "The wall was built to suit the ground. On the Ming wall, the average height was 7 to 8 metres, about 6.5 metres wide at the base and 5.8 metres at the top, and a little lower on steep hills. Materials depended on the place: tamped earth between wooden boards, adobe, brick and stone, or rock. Walls on plains and at important passes were tall and strong, while those on steep mountains were low and narrow. Figures vary between sources, and another gives a height of 16 to 26 feet (5 to 8 m).", s: "Key figures: 7 to 8 m high, 6.5 m at the base, 5.8 m at the top", src: [["Britannica, The Ming dynasty to the present", "https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present"]] },
+    towers: { t: "Watchtowers", p: "Crenellated platforms rose along the wall about every 200 to 300 metres, with guard huts for the soldiers. The Ming wall had over 25,000 watchtowers in all.", s: "Key figures: a platform every 200 to 300 m, over 25,000 watchtowers", src: [["Britannica, The Ming dynasty to the present", "https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present"], ["World History Encyclopedia", "https://www.worldhistory.org/Great_Wall_of_China/"]] },
+    beacon: { t: "Beacon towers", p: "Beacon towers sent signals by fire or lantern at night and by smoke by day, with banners, clappers and guns as other signals. They stood on hilltops, with rooms for soldiers, stables and storage on the lower levels. A Han record describes strongpoints spaced as a beacon every 5 li, a tower every 10 li, a fort every 30 li and a castle every 100 li.", s: "Key signals: fire, lantern, smoke, banners, clappers and guns", src: [["Britannica, The Ming dynasty to the present", "https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present"], ["Britannica, The Han through Yuan dynasties", "https://www.britannica.com/topic/Great-Wall-of-China/The-Han-through-Yuan-dynasties"]] },
+    pass: { t: "Passes", p: "Passes were fortified gates through the wall. Three Inner Passes (Juyong, Daoma and Zijing) protected Beijing, and three Outer Passes (Yanmen, Ningwu and Piantou) lay farther west. Pass bastions were about 10 metres high, and their ramparts were faced with large bricks and stones around a core of dirt and crushed stone.", s: "Key figures: 3 inner and 3 outer passes, bastions about 10 m high", src: [["Britannica, The Ming dynasty to the present", "https://www.britannica.com/topic/Great-Wall-of-China/The-Ming-dynasty-to-the-present"]] }
+  };
+  var svg = document.getElementById("ridge");
+  var btns = document.querySelectorAll(".tabs button");
+  var groups = svg.querySelectorAll(".f");
+  var title = document.getElementById("p-title");
+  var text = document.getElementById("p-text");
+  var stops = document.getElementById("p-stops");
+  var srcEl = document.getElementById("p-src");
+
+  function show(id) {
+    var d = DATA[id];
+    if (!d) return;
+    svg.setAttribute("data-active", id);
+    groups.forEach(function (g) { g.classList.toggle("is-active", g.classList.contains("f-" + id)); });
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-f") === id ? "true" : "false"); });
+    title.textContent = d.t;
+    text.textContent = d.p;
+    stops.textContent = d.s;
+    srcEl.textContent = "Source: ";
+    d.src.forEach(function (s, i) {
+      if (i > 0) srcEl.appendChild(document.createTextNode(" and "));
+      var a = document.createElement("a");
+      a.href = s[1]; a.target = "_blank"; a.rel = "noopener"; a.textContent = s[0];
+      srcEl.appendChild(a);
+    });
+  }
+  btns.forEach(function (b) { b.addEventListener("click", function () { show(b.getAttribute("data-f")); }); });
+  groups.forEach(function (g) { g.addEventListener("click", function () { show(g.getAttribute("data-f")); }); });
+})();
+
+(function () {
+  var Q = [
+    { q: "Which dynasty built most of the wall you can visit today?", o: ["Qin", "Han", "Ming", "Sui"], a: 2, why: "The Ming strengthened the wall against another Mongol invasion, and most of the standing wall is Ming work. The Qin wall ran further north than today's." },
+    { q: "Why can't the Great Wall usually be seen from low Earth orbit with the naked eye?", o: ["It is made of material similar in colour and texture to the land around it", "It is too short", "It is mostly underground", "It was never finished"], a: 0, why: "NASA says the wall's materials are about the same colour and texture as its surroundings. It does show up in radar images." },
+    { q: "How did beacon towers send signals?", o: ["By carrier pigeon", "By horn blasts only", "By riders only", "By fire or lantern at night and smoke by day"], a: 3, why: "Banners, clappers and guns were used too. The towers stood on hilltops, with rooms for soldiers, stables and storage below." },
+    { q: "What was the average height of the Ming wall, according to Britannica?", o: ["About 2 m", "7 to 8 m", "20 m", "30 m"], a: 1, why: "It was also about 6.5 m wide at the base and 5.8 m at the top, a little lower on steep hills." },
+    { q: "What were the Nine Border Garrisons?", o: ["Nine gates of Beijing", "Nine emperors of the Ming", "Nine defence zones along the Ming border, each under a post chief", "Nine kinds of beacon signal"], a: 2, why: "The Ming divided the fortified border into nine defence zones, each commanded by a post chief." },
+    { q: "A Han record describes strongpoints along the wall. How often was there a beacon?", o: ["Every 5 li", "Every 50 li", "Every 100 li", "Only at passes"], a: 0, why: "It says a beacon every 5 li, a tower every 10 li, a fort every 30 li and a castle every 100 li." },
+    { q: "What happened at Shanhai Pass in 1644?", o: ["The Mongols breached the wall", "Rebels destroyed it with cannon", "A Ming general kept the gate shut for a year", "A Ming general joined the Manchus, who then took Beijing"], a: 3, why: "Wu Sangui asked Dorgon for help against rebels, then joined the Qing. Dorgon entered Beijing on 5 June 1644." },
+    { q: "According to the survey, how much of the Ming wall is intact?", o: ["About 50%", "About 8%", "About 90%", "All of it"], a: 1, why: "Only 8.2 percent of the Ming wall is intact, and the rest is in poor condition." },
+    { q: "Who built Qin Shi Huang's northern wall?", o: ["Paid professional engineers only", "Volunteers from the Xiongnu", "Conscripts and convicts working under guard", "Foreign mercenaries"], a: 2, why: "Unwilling conscripts and convicts built it under guard, to defend against the Xiongnu and to show that China was unified." },
+    { q: "How long is the wall according to the survey that began in 2007?", o: ["21,196 km, about 13,170 miles", "About 2,000 km", "About 8,850 km", "About 50,000 km"], a: 0, why: "The 8,850 km figure was a preliminary estimate from 2009. The five-year survey found more than twice that." }
+  ];
+  var root = document.getElementById("quiz");
+  var i = 0, score = 0;
+
+  function mk(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.textContent = txt;
+    return e;
+  }
+
+  function render() {
+    root.textContent = "";
+    if (i >= Q.length) return finish();
+    var item = Q[i];
+
+    var top = mk("div", "q-top");
+    top.appendChild(mk("span", "", "Question " + (i + 1) + " of " + Q.length));
+    top.appendChild(mk("span", "", "Score " + score));
+    var bar = mk("div", "q-bar");
+    var fill = mk("i");
+    fill.style.width = (i / Q.length * 100) + "%";
+    bar.appendChild(fill);
+
+    var opts = mk("div", "opts");
+    var fb = mk("div", "q-feedback");
+    fb.setAttribute("aria-live", "polite");
+    var btns = [];
+
+    item.o.forEach(function (text, k) {
+      var b = mk("button", "", text);
+      b.type = "button";
+      b.addEventListener("click", function () {
+        btns.forEach(function (x) { x.disabled = true; });
+        var ok = k === item.a;
+        if (ok) score++;
+        b.classList.add(ok ? "right" : "wrong");
+        btns[item.a].classList.add("right");
+        fb.appendChild(mk("strong", "", ok ? "Correct." : "Not quite."));
+        fb.appendChild(mk("p", "", item.why));
+        var next = mk("button", "q-btn", i + 1 < Q.length ? "Next question" : "See my score");
+        next.type = "button";
+        next.addEventListener("click", function () { i++; render(); });
+        fb.appendChild(next);
+        next.focus();
+        fill.style.width = ((i + 1) / Q.length * 100) + "%";
+      });
+      btns.push(b);
+      opts.appendChild(b);
+    });
+
+    root.appendChild(top);
+    root.appendChild(bar);
+    root.appendChild(mk("h3", "", item.q));
+    root.appendChild(opts);
+    root.appendChild(fb);
+  }
+
+  function finish() {
+    var msg = score === Q.length ? "Flawless. You know the wall." :
+              score >= 7 ? "Strong work. A few gaps to patch." :
+              score >= 4 ? "You held the middle section. Read the history again and retry." :
+              "The pass fell. Read through the sections above and try again.";
+    root.appendChild(mk("div", "q-top")).appendChild(mk("span", "", "Finished"));
+    root.appendChild(mk("div", "q-score", score + " / " + Q.length));
+    root.appendChild(mk("p", "", msg));
+    var again = mk("button", "q-btn", "Try again");
+    again.type = "button";
+    again.addEventListener("click", function () { i = 0; score = 0; render(); });
+    root.appendChild(again);
+  }
+
+  render();
+})();
+
+(function () {
+  var ducks = document.querySelectorAll(".duck");
+  var found = 0;
+  var scareEl = document.getElementById("scare");
+  var scareTimer;
+  function quack() {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      var ctx = new AC();
+      var o = ctx.createOscillator();
+      var lfo = ctx.createOscillator();
+      var lg = ctx.createGain();
+      var g = ctx.createGain();
+      o.type = "sawtooth";
+      o.frequency.setValueAtTime(130, ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.7);
+      lfo.frequency.value = 28;
+      lg.gain.value = 22;
+      lfo.connect(lg); lg.connect(o.frequency);
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + 0.05);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.75);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(); lfo.start();
+      o.stop(ctx.currentTime + 0.8); lfo.stop(ctx.currentTime + 0.8);
+    } catch (e) {}
+  }
+  function hideScare() { scareEl.hidden = true; clearTimeout(scareTimer); }
+  function scare() {
+    scareEl.hidden = false;
+    quack();
+    clearTimeout(scareTimer);
+    scareTimer = setTimeout(hideScare, 2600);
+  }
+  scareEl.addEventListener("click", hideScare);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") hideScare(); });
+  ducks.forEach(function (d) {
+    d.addEventListener("click", function () {
+      if (d.classList.contains("found")) return;
+      d.classList.add("found");
+      d.setAttribute("aria-label", "Platypus found");
+      found++;
+      if (found === ducks.length) setTimeout(scare, 700);
+    });
+  });
+})();
+</script>
+
+</body></html>
